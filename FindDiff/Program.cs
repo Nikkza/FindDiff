@@ -10,11 +10,10 @@ namespace Finddiff
     {
         static void Main(string[] args)
         {
-            int[] arrayOne = { 1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 14, 16, 18, 20 };
+            int[] arrayOne = { 1, 2, 3, 4, 5 };
             var results = LookUpArr(arrayOne);
             foreach (var item in results)
                 Console.WriteLine($"Number [{item}]");
-
             Console.ReadLine();
         }
 
@@ -23,19 +22,17 @@ namespace Finddiff
             var listNumber = new List<Tuple<int, int>>();
             var arrayTwo = arrayOne;
             int countIndexLoop = 0;
-            loopAgain:
-            foreach (var item in arrayOne)
+            while (countIndexLoop != arrayTwo.Count())
             {
-                var checkNumberAgainsArray = arrayTwo[countIndexLoop];
-                if (checkNumberAgainsArray + 2 == item)
-                    listNumber.Add(new Tuple<int, int>(checkNumberAgainsArray, item));
+                foreach (var item in arrayOne)
+                {
+                    var checkNumberAgainstArray = arrayTwo[countIndexLoop];
+                    if (checkNumberAgainstArray + 2 == item)
+                        listNumber.Add(new Tuple<int, int>(checkNumberAgainstArray, item));
+                }
+                countIndexLoop++;
             }
-            countIndexLoop++;
-
-            if (countIndexLoop != arrayTwo.Count())
-                goto loopAgain;
-            else
-                return listNumber;
+            return listNumber;
         }
     }
 }
