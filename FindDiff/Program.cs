@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Finddiff
 {
@@ -12,8 +10,8 @@ namespace Finddiff
         {
             int[] arrayOne = { 1, 2, 3, 4, 5 };
             var results = LookUpArr(arrayOne);
-            foreach (var item in results)
-                Console.WriteLine($"Number [{item}]");
+            var inlineResults = string.Join(",", results);
+            Console.WriteLine($" Numbers {inlineResults}");
             Console.ReadLine();
         }
 
