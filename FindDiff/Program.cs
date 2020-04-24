@@ -8,7 +8,7 @@ namespace Finddiff
     {
         static void Main(string[] args)
         {
-            int[] arrayOne = { 1, 2, 3, 4, 5 };
+            int[] arrayOne = { 1, 2, 3, 4, 5,7,9,11,99 };
             var results = LookUpArr(arrayOne);
             var inlineResults = string.Join(",", results);
             Console.WriteLine($" Numbers {inlineResults}");
@@ -17,20 +17,20 @@ namespace Finddiff
 
         static List<Tuple<int, int>> LookUpArr(int[] arrayOne)
         {
-            var listNumber = new List<Tuple<int, int>>();
+            var findNumber = new List<Tuple<int, int>>();
             var arrayTwo = arrayOne;
-            int countIndexLoop = 0;
-            while (countIndexLoop != arrayTwo.Count())
+            int countLoop = 0;
+            while (countLoop != arrayTwo.Count())
             {
                 foreach (var item in arrayOne)
                 {
-                    var checkNumberAgainstArray = arrayTwo[countIndexLoop];
+                    var checkNumberAgainstArray = arrayTwo[countLoop];
                     if (checkNumberAgainstArray + 2 == item)
-                        listNumber.Add(new Tuple<int, int>(checkNumberAgainstArray, item));
+                        findNumber.Add(new Tuple<int, int>(checkNumberAgainstArray, item));
                 }
-                countIndexLoop++;
+                countLoop++;
             }
-            return listNumber;
+            return findNumber;
         }
     }
 }
